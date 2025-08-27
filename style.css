@@ -1,0 +1,865 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: #122139;
+  color: white;
+}
+
+/* Scene Radio Inputs */
+.scene-radio {
+  display: none;
+}
+
+/* Surprise Button */
+.surprise-button {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: #d52d58;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive;
+  box-shadow: 0 0 10px rgba(245, 148, 184, 0.47);
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.surprise-button:hover {
+  background: #b81b43;
+  box-shadow: 0 0 20px #f594b8;
+}
+
+.scene1-btn { display: block; }
+.scene2-btn { display: none; }
+
+.scene-radio#scene2:checked ~ .scene1-btn { display: none; }
+.scene-radio#scene2:checked ~ .scene2-btn { display: block; }
+.scene-radio#scene3:checked ~ .scene1-btn,
+.scene-radio#scene3:checked ~ .scene2-btn { display: none; }
+
+/* Scene 1: Liquid Glass Design */
+.glass-scene {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.scene-radio#scene2:checked ~ .glass-scene,
+.scene-radio#scene3:checked ~ .glass-scene {
+  display: none;
+}
+
+.glass-scene .container {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(0.6);
+}
+
+.glass-scene .container div {
+  position: absolute;
+}
+
+.glass-scene .glass {
+  height: 420px;
+  width: 250px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 300px 300px 0px 0px;
+  left: -80px;
+  top: -100px;
+  border-bottom: 15px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-scene .glass:after {
+  width: 8px;
+  background: rgba(255, 255, 255, 0.28);
+  content: "";
+  position: absolute;
+  height: 80px;
+  top: 180px;
+  border-radius: 100px;
+  left: 10px;
+}
+
+.glass-scene .glass:before {
+  width: 8px;
+  background: rgba(255, 255, 255, 0.28);
+  content: "";
+  position: absolute;
+  height: 15px;
+  top: 280px;
+  border-radius: 100px;
+  left: 10px;
+}
+
+.glass-scene .glow {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 100%;
+  border: 1px solid rgba(245, 148, 184, 0.47);
+  box-shadow: 0px 0px 10px #f594b8;
+  left: -40px;
+  top: -40px;
+  transition: all 0.5s ease;
+}
+
+.glass-scene .rose-petals > div {
+  background: #d52d58;
+  width: 45px;
+  height: 80px;
+  position: absolute;
+  transition: all 0.5s ease-out;
+}
+
+.glass-scene .rose-petals > div:nth-child(1) {
+  border-radius: 15px;
+  left: 20px;
+  top: -6px;
+  background: #d52d58;
+}
+
+.glass-scene .rose-petals > div:nth-child(2),
+.glass-scene .rose-petals > div:nth-child(4),
+.glass-scene .rose-petals > div:nth-child(6) {
+  border-radius: 0px 30px 0px 30px;
+  background: #b81b43;
+  left: 0;
+  transform-origin: bottom right;
+}
+
+.glass-scene .rose-petals > div:nth-child(3),
+.glass-scene .rose-petals > div:nth-child(5),
+.glass-scene .rose-petals > div:nth-child(7) {
+  border-radius: 30px 0px 30px 0px;
+  left: 40px;
+  transform-origin: bottom left;
+}
+
+.glass-scene .rose-petals > div:nth-child(2) {
+  z-index: 5;
+  background: #9e183a;
+  top: 10px;
+  height: 70px;
+}
+
+.glass-scene .rose-petals > div:nth-child(3) {
+  z-index: 4;
+  background: #9e183a;
+  top: 10px;
+  height: 70px;
+}
+
+.glass-scene .rose-petals > div:nth-child(4) {
+  z-index: 3;
+  background: #b81b43;
+  top: 5px;
+  height: 75px;
+}
+
+.glass-scene .rose-petals > div:nth-child(5) {
+  z-index: 2;
+  background: #b81b43;
+  top: 5px;
+  height: 75px;
+}
+
+.glass-scene .rose-petals > div:nth-child(6) {
+  z-index: 1;
+  background: #c9204b;
+  top: 0;
+  height: 80px;
+}
+
+.glass-scene .rose-petals > div:nth-child(7) {
+  z-index: 0;
+  background: #c9204b;
+  top: 0;
+  height: 80px;
+}
+
+.glass-scene .rose-leaves > div:nth-last-child(1) {
+  width: 55px;
+  height: 30px;
+  background: #338f37;
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  border-radius: 100px;
+}
+
+.glass-scene .rose-leaves > div:nth-child(1) {
+  width: 6px;
+  height: 230px;
+  border: none;
+  top: 80px;
+  background: #066406;
+  left: 40px;
+}
+
+.glass-scene .thorns > div {
+  width: 30px;
+  height: 30px;
+  background: #066406;
+  top: 100px;
+  left: 10px;
+}
+
+.glass-scene .thorns > div:after {
+  width: 41px;
+  height: 31px;
+  border-radius: 100%;
+  background: #122139;
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 17px;
+}
+
+.glass-scene .thorns > div:before {
+  width: 41px;
+  height: 31px;
+  border-radius: 100%;
+  background: #122139;
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: -11px;
+  z-index: 0;
+}
+
+.glass-scene .thorns > div:nth-child(2) {
+  top: 150px;
+  transform: rotate(180deg);
+  left: 45px;
+}
+
+.glass-scene .thorns > div:nth-child(3) {
+  top: 180px;
+}
+
+.glass-scene .thorns > div:nth-child(4) {
+  top: 220px;
+  transform: rotate(180deg);
+  left: 45px;
+}
+
+.glass-scene .sparkles {
+  bottom: -40px;
+}
+
+.glass-scene .sparkles > div {
+  width: 4px;
+  height: 4px;
+  border-radius: 100px;
+  background: #ff96c0;
+  box-shadow: 0px 0px 12px 2px #ff4e85;
+  bottom: 0;
+  opacity: 0;
+}
+
+.glass-scene .sparkles > div:nth-child(1) { left: 60px; }
+.glass-scene .sparkles > div:nth-child(2) { left: 158px; }
+.glass-scene .sparkles > div:nth-child(3) { left: -22px; }
+.glass-scene .sparkles > div:nth-child(4) { left: 10px; }
+.glass-scene .sparkles > div:nth-child(5) { left: 177px; }
+.glass-scene .sparkles > div:nth-child(6) { left: -82px; }
+.glass-scene .sparkles > div:nth-child(7) { left: 45px; }
+.glass-scene .sparkles > div:nth-child(8) { left: 74px; }
+.glass-scene .sparkles > div:nth-child(9) { left: -79px; }
+
+/* Scene 2: Birthday Cake */
+.cake-scene {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background: linear-gradient(180deg, #ffe1f0, #ffc6ff);
+}
+
+.scene-radio#scene2:checked ~ .cake-scene {
+  display: block;
+}
+
+.cake-scene .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #fff0fa 0%, transparent 70%);
+  animation: none;
+  z-index: 0;
+}
+
+.cake-scene #sparkles-scene2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: none;
+}
+
+.cake-scene .birthday-message {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Indie Flower', 'Comic Sans MS', cursive;
+  font-size: clamp(24px, 5vw, 36px);
+  color: #d52d58;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  z-index: 2;
+}
+
+.cake-scene .cake {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+
+.cake-scene .layer {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  background: #f7aef8;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cake-scene .layer-bottom { bottom: 0; background: #f7aef8; }
+.cake-scene .layer-middle { bottom: 60px; background: #b388eb; }
+.cake-scene .layer-top { bottom: 120px; background: #8093f1; }
+
+.cake-scene .icing {
+  position: absolute;
+  bottom: 150px;
+  width: 200px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+}
+
+.cake-scene .candle {
+  position: absolute;
+  bottom: 170px;
+  left: 50%;
+  width: 10px;
+  height: 40px;
+  background: #ff5e5e;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.cake-scene .flame {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(ellipse at center, #ffdc73, #ff9900);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: none;
+}
+
+/* Scene 3: Carousel and Page 4 */
+.carousel-scene {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  background: linear-gradient(135deg, #800000, #4B0000);
+}
+
+.scene-radio#scene3:checked ~ .carousel-scene {
+  display: grid;
+  place-items: center;
+}
+
+.carousel-scene #sparkles-scene3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.main-carousel {
+  width: 100%;
+  height: 100vh;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.carousel-item {
+  --items: 9;
+  --width: clamp(150px, 30vw, 300px);
+  --height: clamp(200px, 40vw, 400px);
+  --x: calc(var(--active) * 800%);
+  --y: calc(var(--active) * 200%);
+  --rot: calc(var(--active) * 120deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+  overflow: hidden;
+  position: absolute;
+  z-index: var(--zIndex);
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform-origin: 0% 100%;
+  box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+  background: black;
+  pointer-events: all;
+  transform: translate(var(--x), var(--y)) rotate(var(--rot));
+  transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+}
+
+.carousel-item .carousel-box {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  opacity: var(--opacity);
+  font-family: "Orelo-sw-db", serif;
+}
+
+.carousel-item .carousel-box:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+}
+
+.carousel-item .title {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  bottom: 20px;
+  left: 20px;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  font-size: clamp(20px, 3vw, 30px);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.carousel-item .num {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  top: 10px;
+  left: 20px;
+  transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+  font-size: clamp(20px, 10vw, 80px);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.intention-btn {
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "Orelo-sw-db", serif;
+  font-size: clamp(14px, 2vw, 16px);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.intention-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.logo {
+  position: absolute;
+  z-index: 2;
+  top: 28px;
+  right: 28px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orelo-sw-db", serif;
+  pointer-events: all;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+}
+
+.social {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  right: 25px;
+  color: #fff;
+  opacity: 0.4;
+}
+
+.social a {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.social svg path {
+  fill: #fff;
+}
+
+.cursor {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+  transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+  display: none;
+  pointer-events: none;
+}
+
+@media (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
+
+.cursor2 {
+  --size: 2px;
+  transition-duration: 0.7s;
+}
+
+.page4-content {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  place-items: center;
+}
+
+.page4-content.active {
+  display: grid;
+}
+
+.page4-header {
+  position: absolute;
+  z-index: 999;
+  text-align: center;
+  top: 0;
+  padding: 1rem;
+  background: inherit;
+  font-family: "Orelo-sw-db", serif;
+}
+
+.page4-header h1 {
+  font-size: clamp(20px, 4vw, 30px);
+}
+
+.page4-container {
+  position: relative;
+  width: clamp(200px, 80vw, 400px);
+}
+
+.page4-ul {
+  list-style: none;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.page4-ul > li {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.2rem);
+  --rotateX: calc(1deg * var(--rotateDegrees) * calc(var(--day_idx) - var(--currentDay)));
+  transform: rotateX(var(--rotateX)) translateZ(250px) translateX(-50%) scale(var(--scale, 1));
+  --hue: calc(var(--rotateDegrees) * var(--day_idx));
+  background-color: hsl(var(--hue), 50%, var(--lightness, 50%));
+  width: 70%;
+  color: white;
+  display: grid;
+  grid-template-columns: 2.5rem auto;
+  height: 2.4rem;
+  transition: transform 500ms ease, background-color 500ms ease;
+  font-family: "Orelo-sw-db", serif;
+  border-radius: 5px;
+}
+
+.page4-ul > li.active {
+  --lightness: 30%;
+  --scale: 1.1;
+}
+
+.page4-ul > li > * {
+  display: grid;
+  align-items: center;
+}
+
+.page4-ul > li > time {
+  text-align: center;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+.page4-ul > li > span {
+  padding-inline-start: 0.5rem;
+  color: white;
+  font-size: clamp(12px, 2vw, 14px);
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.page4-controls {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.page4-controls button {
+  width: clamp(1.5rem, 5vw, 2rem);
+  aspect-ratio: 1;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: white;
+  border: none;
+  background: #39657e;
+  display: flex;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.page4-controls button:hover,
+.page4-controls button:focus {
+  background: rgb(6, 60, 131);
+}
+
+.page4-controls button:active {
+  transform: scale(0.9);
+}
+
+.page4-border {
+  width: clamp(180px, 75vw, 380px);
+  height: clamp(2.5rem, 8vw, 3rem);
+  border: 1px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "Orelo-sw-db", serif;
+  font-size: clamp(14px, 2vw, 16px);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .intention-btn {
+    padding: 6px 12px;
+    font-size: clamp(12px, 1.8vw, 14px);
+  }
+  .carousel-item .title {
+    bottom: 15px;
+    font-size: clamp(16px, 2.5vw, 24px);
+  }
+  .page4-container {
+    width: clamp(180px, 90vw, 350px);
+  }
+  .page4-border {
+    width: clamp(160px, 85vw, 330px);
+  }
+  .page4-header h1 {
+    font-size: clamp(18px, 3.5vw, 26px);
+  }
+}
+
+@font-face {
+  font-family: "Orelo-sw-db";
+  src: url("Orelo-sw-db.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Animations for Scene 1 */
+.scene-radio#scene1:checked ~ .glass-scene .glow {
+  animation: glowing 2.5s ease-in-out infinite;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(2) {
+  animation: openRose2 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(3) {
+  animation: openRose3 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(4) {
+  animation: openRose4 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(5) {
+  animation: openRose5 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(6) {
+  animation: openRose6 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .rose-petals > div:nth-child(7) {
+  animation: openRose7 3s ease-in-out forwards;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div {
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(1) { animation-delay: 3s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(2) { animation-delay: 2s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(3) { animation-delay: 1s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(4) { animation-delay: 1s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(5) { animation-delay: 3s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(6) { animation-delay: 2s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(7) { animation-delay: 3s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(8) { animation-delay: 3s; }
+.scene-radio#scene1:checked ~ .glass-scene .sparkles > div:nth-child(9) { animation-delay: 2s; }
+
+/* Animations for Scene 2 */
+.scene-radio#scene2:checked ~ .cake-scene .background {
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.scene-radio#scene2:checked ~ .cake-scene .flame {
+  animation: flicker 0.3s infinite;
+}
+
+.scene-radio#scene2:checked ~ .cake-scene #sparkles-scene2 {
+  display: block;
+}
+
+.scene-radio#scene2:checked ~ .cake-scene .birthday-message {
+  animation: fadeInScale 1.5s ease-in-out forwards;
+}
+
+@keyframes sparkle {
+  50% { opacity: 1; }
+  100% { bottom: 250px; }
+}
+
+@keyframes openRose2 {
+  50% { transform: rotate(-90deg); top: 80px; left: 100px; }
+  100% { transform: rotate(-60deg); top: 210px; left: -30px; }
+}
+
+@keyframes openRose3 { 100% { transform: rotate(60deg); } }
+@keyframes openRose4 { 100% { transform: rotate(-30deg); } }
+@keyframes openRose5 { 100% { transform: rotate(30deg); } }
+@keyframes openRose6 { 100% { transform: rotate(-15deg); } }
+@keyframes openRose7 { 100% { transform: rotate(15deg); } }
+@keyframes glowing { 50% { box-shadow: 0px 0px 60px #f594b8; } }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes flicker {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+}
